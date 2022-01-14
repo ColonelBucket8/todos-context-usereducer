@@ -10,9 +10,6 @@ import useTodoState from "./hooks/useTodoState";
 import { TodosProvider } from "./contexts/todos.context";
 
 function TodoApp() {
-  const initialTodos = [{ id: 1, task: "Walk The Goldfish", completed: true }];
-  const { todos, addTodo, removeTodo, toggleTodo, editTodo } =
-    useTodoState(initialTodos);
   return (
     <Paper
       style={{
@@ -31,13 +28,8 @@ function TodoApp() {
       <Grid container justify="center" style={{ marginTop: "1rem" }}>
         <Grid item xs={11} md={8} lg={4}>
           <TodosProvider>
-            <TodoForm addTodo={addTodo} />
-            <TodoList
-              todos={todos}
-              removeTodo={removeTodo}
-              toggleTodo={toggleTodo}
-              editTodo={editTodo}
-            />
+            <TodoForm />
+            <TodoList />
           </TodosProvider>
         </Grid>
       </Grid>
